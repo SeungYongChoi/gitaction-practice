@@ -42,5 +42,5 @@ jobs:
       run: |
         docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
         docker build -t cicd-test:${GITHUB_SHA::7} .
-        docker push ppyooy336/cicd-test:${GITHUM_SHA::7}
+        docker push ppyooy336/cicd-test:${GITHUB_SHA::7}
         
