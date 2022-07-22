@@ -12,7 +12,7 @@ class MemberTest {
         Member member = new Member();
         member.setName("yong");
 
-        Assertions.assertThat(member.getName()).isEqualTo("yong");
+        Assertions.assertThat(member.getName()).isEqualTo("yong123");
     }
 
 }
