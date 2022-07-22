@@ -34,9 +34,15 @@ jobs:
       with:
         arguments: build
 
+    - name : Run echo secrets
+      run : 
+        echo ${{ secrets.USERNAME }}
+        echo ${{ secrets.PASSWORD }}
+
+
     - name: Docker build
       run: |
-        winpty docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
+        docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
         docker build -t ppyooy336/cicd-test:${GITHUM_SHA::7} .
         docker push ppyooy336/cicd-test:${GITHUM_SHA::7}
         
