@@ -33,12 +33,10 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
-
-    - name : Run echo secrets
-      run : 
-        echo ${{ secrets.USERNAME }}
-        echo ${{ secrets.PASSWORD }}
-
+        
+    - name: Echo
+      run:
+        echo ${GITHUM_SHA::7}
 
     - name: Docker build
       run: |
