@@ -18,7 +18,7 @@ public class DemoApplication {
 
 		@GetMapping("/")
 		public String hi() {
-			return "적게일하고돈많이벌고싶다....!!!";
+			return "두근두근 대마왕";
 		}
 	}
 }
