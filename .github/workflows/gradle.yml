@@ -48,7 +48,7 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}
         username: ubuntu
         key: ${{ secrets.SECRET_KEY }}
-        #envs: GITHUB_SHA
+        envs: GITHUB_SHA
         script: |
           docker pull ppyooy336/cicd-test:${GITHUB_SHA::7}
           docker tag ppyooy336/cicd-test:${GITHUB_SHA::7} cicd-test
