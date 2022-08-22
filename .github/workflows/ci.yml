@@ -31,7 +31,13 @@ jobs:
         touch ./mongle-private.pem
         echo "${{ secrets.PRIVATE_PEM_KEY }}" > ./mongle-pubilc.pem
         
-    - name: SSH Remote Commands
+    - name: SSH remote Commands - public
+      run: |
+        ssh -i ./mongle-public.pem ec2-user@${{ secrets.BASTION_IP }}
+        echo "hi in bastion"
+        
+        
+    - name: SSH Remote Commands - private
       run: |
         sudo ssh -t -t -o ProxyCommand="ssh -W %h:%p ec2-user@${{ secrets.BASTION_IP }} -i ./mongle-pubilc.pem" -i ./mongle-private.pem ec2-user@${{ secrets.DEV_SERVER_IP }}
         echo "hi"
