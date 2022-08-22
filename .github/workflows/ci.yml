@@ -30,9 +30,6 @@ jobs:
         echo "${{ secrets.PUBLIC_PEM_KEY }}" > ./mongle-pubilc.pem
         touch ./mongle-private.pem
         echo "${{ secrets.PRIVATE_PEM_KEY }}" > ./mongle-pubilc.pem
-        
-    - name: SSH remote Commands - public
-      run: |
         sudo ssh -t -t -i ./mongle-public.pem ec2-user@${{ secrets.BASTION_IP }}
         echo "hi in bastion"
         
