@@ -33,7 +33,7 @@ jobs:
         
     - name: SSH remote Commands - public
       run: |
-        ssh -i ./mongle-public.pem ec2-user@${{ secrets.BASTION_IP }}
+        sudo ssh -t -t -i ./mongle-public.pem ec2-user@${{ secrets.BASTION_IP }}
         echo "hi in bastion"
         
         
