@@ -32,12 +32,14 @@ jobs:
         echo "${{ secrets.PRIVATE_PEM_KEY }}" > ./mongle-pubilc.pem
         sudo ssh -t -t -i ./mongle-public.pem ec2-user@${{ secrets.BASTION_IP }}
         echo "hi in bastion"
+      shell: bash
         
         
     - name: SSH Remote Commands - private
       run: |
         sudo ssh -t -t -o ProxyCommand="ssh -W %h:%p ec2-user@${{ secrets.BASTION_IP }} -i ./mongle-pubilc.pem" -i ./mongle-private.pem ec2-user@${{ secrets.DEV_SERVER_IP }}
         echo "hi"
+      shell: bash
     
 
   
