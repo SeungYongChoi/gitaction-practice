@@ -30,33 +30,15 @@ jobs:
         
     - name: make main properties
       run: |
-        .
-        .
-        .
+        cd ./src/main/resources
+        touch ./application.properties
+        echo "${{ secrets.PROPERTIES }}" > ./application.properties
       shell: bash    
       
 
     - name: make main fcm json
-      run: |
-        .
-        .
-        .
-      shell: bash        
-      
-  
     - name: make test properties
-      run: |
-        .
-        .
-        .
-      shell: bash    
-  
     - name: make test fcm json
-      run: |
-        .
-        .
-        .
-      shell: bash    
     
     - name: Build with Gradle
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
